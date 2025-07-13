@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proposta de Projeto - Plataforma White Label</title>
+    <title>Documento Consolidado - ArMatch Development</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -13,6 +13,8 @@
                         primary: '#6366f1',
                         secondary: '#8b5cf6',
                         accent: '#ec4899',
+                        success: '#10b981',
+                        warning: '#f59e0b',
                         dark: '#1e293b',
                         light: '#f8fafc'
                     },
@@ -45,346 +47,1059 @@
         .section-divider {
             background: linear-gradient(90deg, transparent, #e2e8f0, transparent);
         }
+        .timeline-line {
+            background: linear-gradient(to bottom, #e2e8f0, #cbd5e1, #e2e8f0);
+        }
+        .phase-card {
+            transition: all 0.3s ease;
+        }
+        .phase-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .animate-slide-in {
+            animation: slideIn 0.8s ease-in-out;
+        }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        .progress-bar {
+            background: linear-gradient(90deg, #10b981, #059669);
+        }
+        .phase-icon {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+        .kanban-card {
+            transition: all 0.3s ease;
+            cursor: grab;
+        }
+        .kanban-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .kanban-card:active {
+            cursor: grabbing;
+        }
+        .kanban-column {
+            min-height: 600px;
+        }
+        .dev-badge {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
     </style>
 </head>
 <body class="bg-gray-50 font-sans">
-    <!-- Header -->
-    <header class="gradient-bg text-white py-16">
-        <div class="container mx-auto px-6">
-            <div class="text-center animate-fade-in">
-                <div class="mb-6">
-                    <div class="inline-flex items-center justify-center w-20 h-20 bg-white/20 rounded-full mb-4">
-                        <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
-                    </div>
-                </div>
-                <h1 class="text-5xl font-bold mb-4">Proposta de Projeto</h1>
-                <h2 class="text-2xl font-light mb-6 opacity-90">Plataforma White Label para Conteúdos Exclusivos</h2>
-                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6 max-w-2xl mx-auto">
-                    <p class="text-lg"><strong>Empresa:</strong> ArMatch</p>
-                    <p class="text-lg"><strong>CNPJ:</strong> 34.562.746/0001-00</p>
-                    <p class="text-lg"><strong>Modelo:</strong> White Label (100% de propriedade intelectual)</p>
-                </div>
+    <!-- Navigation -->
+    <nav class="bg-dark text-white p-4 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold">ArMatch</a>
+            <div class="space-x-4">
+                <a href="#proposta" class="hover:text-primary transition duration-300">Proposta</a>
+                <a href="#cronograma" class="hover:text-primary transition duration-300">Cronograma</a>
+                <a href="#kanban" class="hover:text-primary transition duration-300">Kanban</a>
             </div>
         </div>
-    </header>
+    </nav>
 
-    <!-- Main Content -->
-    <main class="container mx-auto px-6 py-12">
+    <!-- Proposta Section -->
+    <section id="proposta" class="py-16">
+        <div class="container mx-auto px-6">
+            <!-- Conteúdo da Proposta (copiado de proposta.html) -->
+            <header class="gradient-bg text-white py-16">
+                <div class="container mx-auto px-6">
+                    <div class="text-center animate-fade-in">
+                        <div class="mb-6">
+                            <div class="inline-flex items-center justify-center w-20 h-20 bg-white/20 rounded-full mb-4">
+                                <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <h1 class="text-5xl font-bold mb-4">Proposta de Projeto</h1>
+                        <h2 class="text-2xl font-light mb-6 opacity-90">Plataforma White Label para Conteúdos Exclusivos</h2>
+                        <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6 max-w-2xl mx-auto">
+                            <p class="text-lg"><strong>Empresa:</strong> ArMatch</p>
+                            <p class="text-lg"><strong>CNPJ:</strong> 34.562.746/0001-00</p>
+                            <p class="text-lg"><strong>Modelo:</strong> White Label (100% de propriedade intelectual)</p>
+                        </div>
+                    </div>
+                </div>
+            </header>
         
-        <!-- Módulos do Sistema -->
-        <section class="mb-16 animate-fade-in">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl font-bold text-gray-800 mb-4">🧩 Módulos do Sistema</h2>
-                <div class="section-divider h-px w-24 mx-auto"></div>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Módulo 1 -->
-                <div class="bg-white rounded-xl shadow-lg p-8 card-hover border-t-4 border-primary">
-                    <div class="text-center mb-6">
-                        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <span class="text-3xl">🔐</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-800">Plataforma de Conteúdos Privados</h3>
-                        <p class="text-gray-600 text-sm">(Modelo "Privacy" ou "OnlyFans")</p>
-                    </div>
-                    
-                    <div class="space-y-4">
-                        <div class="bg-gray-50 rounded-lg p-4">
-                            <h4 class="font-semibold text-gray-800 mb-2">👤 Criador de Conteúdo</h4>
-                            <ul class="text-sm text-gray-600 space-y-1">
-                                <li>• Cadastro de perfil completo</li>
-                                <li>• Upload de conteúdos pagos</li>
-                                <li>• Sistema de assinaturas</li>
-                                <li>• Chat com assinantes</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="bg-gray-50 rounded-lg p-4">
-                            <h4 class="font-semibold text-gray-800 mb-2">🛒 Consumidor</h4>
-                            <ul class="text-sm text-gray-600 space-y-1">
-                                <li>• Navegação por perfis</li>
-                                <li>• Acesso mediante pagamento</li>
-                                <li>• Sistema de assinaturas</li>
-                                <li>• Pagamento Pix/Cartão</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Módulo 2 -->
-                <div class="bg-white rounded-xl shadow-lg p-8 card-hover border-t-4 border-accent">
-                    <div class="text-center mb-6">
-                        <div class="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <span class="text-3xl">💋</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-800">Módulo de Acompanhantes</h3>
-                    </div>
-                    
-                    <div class="space-y-4">
-                        <div class="bg-gray-50 rounded-lg p-4">
-                            <h4 class="font-semibold text-gray-800 mb-2">📝 Cadastro Completo</h4>
-                            <ul class="text-sm text-gray-600 space-y-1">
-                                <li>• Perfil com fotos verificadas</li>
-                                <li>• Localização e classificação</li>
-                                <li>• Preços e serviços</li>
-                                <li>• Integração WhatsApp</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="bg-gray-50 rounded-lg p-4">
-                            <h4 class="font-semibold text-gray-800 mb-2">🌐 Página Pública</h4>
-                            <ul class="text-sm text-gray-600 space-y-1">
-                                <li>• Galeria de fotos</li>
-                                <li>• Sistema de depoimentos</li>
-                                <li>• Filtros por cidade/gênero</li>
-                                <li>• Acesso sem cadastro</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Módulo 3 -->
-                <div class="bg-white rounded-xl shadow-lg p-8 card-hover border-t-4 border-secondary">
-                    <div class="text-center mb-6">
-                        <div class="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <span class="text-3xl">🛠</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-800">Painel Administrativo</h3>
-                        <p class="text-gray-600 text-sm">(Backoffice Completo)</p>
-                    </div>
-                    
-                    <div class="space-y-4">
-                        <div class="bg-gray-50 rounded-lg p-4">
-                            <h4 class="font-semibold text-gray-800 mb-2">⚙️ Admin Geral</h4>
-                            <ul class="text-sm text-gray-600 space-y-1">
-                                <li>• Gestão de usuários</li>
-                                <li>• Moderação de conteúdo</li>
-                                <li>• Sistema de denúncias</li>
-                                <li>• Controle de pagamentos</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="bg-gray-50 rounded-lg p-4">
-                            <h4 class="font-semibold text-gray-800 mb-2">💰 Financeiro</h4>
-                            <ul class="text-sm text-gray-600 space-y-1">
-                                <li>• Relatórios de receita</li>
-                                <li>• Acompanhamento TPV</li>
-                                <li>• Gestão de repasses</li>
-                                <li>• Exportação de dados</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Integrações e Infraestrutura -->
-        <section class="mb-16">
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Integrações Financeiras -->
-                <div class="bg-white rounded-xl shadow-lg p-8 card-hover">
-                    <div class="flex items-center mb-6">
-                        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4">
-                            <span class="text-2xl">💳</span>
-                        </div>
-                        <h3 class="text-2xl font-bold text-gray-800">Integrações Financeiras</h3>
-                    </div>
-                    
-                    <div class="space-y-4">
-                        <div class="flex items-center p-3 bg-green-50 rounded-lg">
-                            <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center mr-3">
-                                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <p class="font-semibold text-gray-800">PIX</p>
-                                <p class="text-sm text-gray-600">Mercado Pago, Gerencianet</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-center p-3 bg-blue-50 rounded-lg">
-                            <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center mr-3">
-                                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <p class="font-semibold text-gray-800">Cartão de Crédito</p>
-                                <p class="text-sm text-gray-600">Stripe, Iugu, Mercado Pago</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Infraestrutura -->
-                <div class="bg-white rounded-xl shadow-lg p-8 card-hover">
-                    <div class="flex items-center mb-6">
-                        <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mr-4">
-                            <span class="text-2xl">🧱</span>
-                        </div>
-                        <h3 class="text-2xl font-bold text-gray-800">Infraestrutura</h3>
-                    </div>
-                    
-                    <div class="space-y-3">
-                        <div class="flex items-center">
-                            <div class="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
-                            <span class="text-gray-700">Backend em Laravel</span>
-                        </div>
-                        <div class="flex items-center">
-                            <div class="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
-                            <span class="text-gray-700">Frontend com Tailwind CSS</span>
-                        </div>
-                        <div class="flex items-center">
-                            <div class="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
-                            <span class="text-gray-700">Banco de dados MySQL</span>
-                        </div>
-                        <div class="flex items-center">
-                            <div class="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
-                            <span class="text-gray-700">Hospedagem AWS EC2</span>
-                        </div>
-                        <div class="flex items-center">
-                            <div class="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
-                            <span class="text-gray-700">DNS com Route53</span>
-                        </div>
-                        <div class="flex items-center">
-                            <div class="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
-                            <span class="text-gray-700">Load Balancer para alta disponibilidade</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Estrutura de Custos -->
-        <section class="mb-16">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl font-bold text-gray-800 mb-4">📊 Estrutura de Custos Interna</h2>
-                <div class="section-divider h-px w-24 mx-auto"></div>
-            </div>
-            
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
-                <div class="bg-gray-50 px-8 py-4 border-b">
-                    <h3 class="text-xl font-semibold text-gray-800">Investimento Total do Projeto</h3>
-                </div>
+            <!-- Main Content -->
+            <main class="container mx-auto px-6 py-12">
                 
-                <div class="p-8">
-                    <div class="space-y-4">
-                        <div class="flex justify-between items-center p-4 bg-blue-50 rounded-lg">
-                            <div>
-                                <h4 class="font-semibold text-gray-800">Honorários de Desenvolvimento (Softbase)</h4>
-                                <p class="text-sm text-gray-600">Desenvolvimento principal da plataforma</p>
+                <!-- Módulos do Sistema -->
+                <section class="mb-16 animate-fade-in">
+                    <div class="text-center mb-12">
+                        <h2 class="text-4xl font-bold text-gray-800 mb-4">🧩 Módulos do Sistema</h2>
+                        <div class="section-divider h-px w-24 mx-auto"></div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <!-- Módulo 1 -->
+                        <div class="bg-white rounded-xl shadow-lg p-8 card-hover border-t-4 border-primary">
+                            <div class="text-center mb-6">
+                                <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <span class="text-3xl">🔐</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-800">Plataforma de Conteúdos Privados</h3>
+                                <p class="text-gray-600 text-sm">(Modelo "Privacy" ou "OnlyFans")</p>
                             </div>
-                            <div class="text-right">
-                                <span class="text-2xl font-bold text-blue-600">R$ 15.000,00</span>
+                            
+                            <div class="space-y-4">
+                                <div class="bg-gray-50 rounded-lg p-4">
+                                    <h4 class="font-semibold text-gray-800 mb-2">👤 Criador de Conteúdo</h4>
+                                    <ul class="text-sm text-gray-600 space-y-1">
+                                        <li>• Cadastro de perfil completo</li>
+                                        <li>• Upload de conteúdos pagos</li>
+                                        <li>• Sistema de assinaturas</li>
+                                        <li>• Chat com assinantes</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-gray-50 rounded-lg p-4">
+                                    <h4 class="font-semibold text-gray-800 mb-2">🛒 Consumidor</h4>
+                                    <ul class="text-sm text-gray-600 space-y-1">
+                                        <li>• Navegação por perfis</li>
+                                        <li>• Acesso mediante pagamento</li>
+                                        <li>• Sistema de assinaturas</li>
+                                        <li>• Pagamento Pix/Cartão</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                        
-                        <div class="flex justify-between items-center p-4 bg-green-50 rounded-lg">
-                            <div>
-                                <h4 class="font-semibold text-gray-800">Equipe Técnica de Apoio</h4>
-                                <p class="text-sm text-gray-600">Desenvolvedor auxiliar</p>
+        
+                        <!-- Módulo 2 -->
+                        <div class="bg-white rounded-xl shadow-lg p-8 card-hover border-t-4 border-accent">
+                            <div class="text-center mb-6">
+                                <div class="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <span class="text-3xl">💋</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-800">Módulo de Acompanhantes</h3>
                             </div>
-                            <div class="text-right">
-                                <span class="text-2xl font-bold text-green-600">R$ 9.000,00</span>
+                            
+                            <div class="space-y-4">
+                                <div class="bg-gray-50 rounded-lg p-4">
+                                    <h4 class="font-semibold text-gray-800 mb-2">📝 Cadastro Completo</h4>
+                                    <ul class="text-sm text-gray-600 space-y-1">
+                                        <li>• Perfil com fotos verificadas</li>
+                                        <li>• Localização e classificação</li>
+                                        <li>• Preços e serviços</li>
+                                        <li>• Integração WhatsApp</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-gray-50 rounded-lg p-4">
+                                    <h4 class="font-semibold text-gray-800 mb-2">🌐 Página Pública</h4>
+                                    <ul class="text-sm text-gray-600 space-y-1">
+                                        <li>• Galeria de fotos</li>
+                                        <li>• Sistema de depoimentos</li>
+                                        <li>• Filtros por cidade/gênero</li>
+                                        <li>• Acesso sem cadastro</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                        
-                        <div class="flex justify-between items-center p-4 bg-purple-50 rounded-lg">
-                            <div>
-                                <h4 class="font-semibold text-gray-800">Infraestrutura e Setup</h4>
-                                <p class="text-sm text-gray-600">Servidores, domínios, deploy, segurança</p>
+        
+                        <!-- Módulo 3 -->
+                        <div class="bg-white rounded-xl shadow-lg p-8 card-hover border-t-4 border-secondary">
+                            <div class="text-center mb-6">
+                                <div class="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <span class="text-3xl">🛠</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-800">Painel Administrativo</h3>
+                                <p class="text-gray-600 text-sm">(Backoffice Completo)</p>
                             </div>
-                            <div class="text-right">
-                                <span class="text-2xl font-bold text-purple-600">R$ 3.000,00</span>
+                            
+                            <div class="space-y-4">
+                                <div class="bg-gray-50 rounded-lg p-4">
+                                    <h4 class="font-semibold text-gray-800 mb-2">⚙️ Admin Geral</h4>
+                                    <ul class="text-sm text-gray-600 space-y-1">
+                                        <li>• Gestão de usuários</li>
+                                        <li>• Moderação de conteúdo</li>
+                                        <li>• Sistema de denúncias</li>
+                                        <li>• Controle de pagamentos</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-gray-50 rounded-lg p-4">
+                                    <h4 class="font-semibold text-gray-800 mb-2">💰 Financeiro</h4>
+                                    <ul class="text-sm text-gray-600 space-y-1">
+                                        <li>• Relatórios de receita</li>
+                                        <li>• Acompanhamento TPV</li>
+                                        <li>• Gestão de repasses</li>
+                                        <li>• Exportação de dados</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
+                    </div>
+                </section>
+        
+                <!-- Integrações e Infraestrutura -->
+                <section class="mb-16">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <!-- Integrações Financeiras -->
+                        <div class="bg-white rounded-xl shadow-lg p-8 card-hover">
+                            <div class="flex items-center mb-6">
+                                <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4">
+                                    <span class="text-2xl">💳</span>
+                                </div>
+                                <h3 class="text-2xl font-bold text-gray-800">Integrações Financeiras</h3>
+                            </div>
+                            
+                            <div class="space-y-4">
+                                <div class="flex items-center p-3 bg-green-50 rounded-lg">
+                                    <div>
+                                        <p class="font-semibold text-gray-800">PIX</p>
+                                        <p class="text-sm text-gray-600">Mercado Pago, Gerencianet</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center p-3 bg-blue-50 rounded-lg">
+                                    <div>
+                                        <p class="font-semibold text-gray-800">Cartão de Crédito</p>
+                                        <p class="text-sm text-gray-600">Stripe, Iugu, Mercado Pago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <!-- Infraestrutura -->
+                        <div class="bg-white rounded-xl shadow-lg p-8 card-hover">
+                            <div class="flex items-center mb-6">
+                                <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mr-4">
+                                    <span class="text-2xl">🧱</span>
+                                </div>
+                                <h3 class="text-2xl font-bold text-gray-800">Infraestrutura</h3>
+                            </div>
+                            
+                            <div class="space-y-3">
+                                <div class="flex items-center">
+                                    <div class="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
+                                    <span class="text-gray-700">Backend em Laravel</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
+                                    <span class="text-gray-700">Frontend com Tailwind CSS</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
+                                    <span class="text-gray-700">Banco de dados MySQL</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
+                                    <span class="text-gray-700">Hospedagem AWS EC2</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
+                                    <span class="text-gray-700">DNS com Route53</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
+                                    <span class="text-gray-700">Load Balancer para alta disponibilidade</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+        
+                <!-- Estrutura de Custos -->
+                <section class="mb-16">
+                    <div class="text-center mb-12">
+                        <h2 class="text-4xl font-bold text-gray-800 mb-4">📊 Estrutura de Custos Interna</h2>
+                        <div class="section-divider h-px w-24 mx-auto"></div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                        <div class="bg-gray-50 px-8 py-4 border-b">
+                            <h3 class="text-xl font-semibold text-gray-800">Investimento Total do Projeto</h3>
+                        </div>
                         
-                        <div class="border-t-2 border-gray-200 pt-4">
-                            <div class="flex justify-between items-center p-6 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-lg text-white">
+                        <div class="p-8">
+                            <div class="space-y-4">
+                                <div class="flex justify-between items-center p-4 bg-blue-50 rounded-lg">
+                                    <div>
+                                        <h4 class="font-semibold text-gray-800">Honorários de Desenvolvimento (Softbase)</h4>
+                                        <p class="text-sm text-gray-600">Desenvolvimento principal da plataforma</p>
+                                    </div>
+                                    <div class="text-right">
+                                        <span class="text-2xl font-bold text-blue-600">R$ 15.000,00</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex justify-between items-center p-4 bg-green-50 rounded-lg">
+                                    <div>
+                                        <h4 class="font-semibold text-gray-800">Equipe Técnica de Apoio</h4>
+                                        <p class="text-sm text-gray-600">Desenvolvedor auxiliar</p>
+                                    </div>
+                                    <div class="text-right">
+                                        <span class="text-2xl font-bold text-green-600">R$ 9.000,00</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex justify-between items-center p-4 bg-purple-50 rounded-lg">
+                                    <div>
+                                        <h4 class="font-semibold text-gray-800">Infraestrutura e Setup</h4>
+                                        <p class="text-sm text-gray-600">Servidores, domínios, deploy, segurança</p>
+                                    </div>
+                                    <div class="text-right">
+                                        <span class="text-2xl font-bold text-purple-600">R$ 3.000,00</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="border-t-2 border-gray-200 pt-4">
+                                    <div class="flex justify-between items-center p-6 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-lg text-white">
+                                        <div>
+                                            <h4 class="text-xl font-bold">Total Investido no Projeto</h4>
+                                            <p class="text-sm opacity-90">Valor total para desenvolvimento completo</p>
+                                        </div>
+                                        <div class="text-right">
+                                            <span class="text-4xl font-bold">R$ 27.000,00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-8 p-6 bg-yellow-50 border-l-4 border-yellow-400 rounded-r-lg">
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0">
+                                        <svg class="w-6 h-6 text-yellow-600" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                                        </svg>
+                                    </div>
+                                    <div class="ml-3">
+                                        <h4 class="text-lg font-semibold text-yellow-800">Manutenção Evolutiva</h4>
+                                        <p class="text-yellow-700">Após a entrega, será aplicada uma taxa de <strong>1% sobre o TPV (Total Processado de Vendas)</strong> para manter a plataforma sempre atualizada e com suporte técnico evolutivo.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+        
+                <!-- Considerações Finais -->
+                <section class="mb-16">
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <div class="text-center mb-8">
+                            <h3 class="text-3xl font-bold text-gray-800 mb-4">📌 Considerações Finais</h3>
+                            <div class="section-divider h-px w-24 mx-auto"></div>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div class="space-y-4">
+                                <div class="flex items-start">
+                                    <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center mr-4 mt-1">
+                                        <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                                        </svg>
+                                    </div>
+                                    <p class="text-gray-700">A plataforma é 100% de propriedade da ArMatch (white label)</p>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center mr-4 mt-1">
+                                        <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                                        </svg>
+                                    </div>
+                                    <p class="text-gray-700">Pode ser adaptada, licenciada ou revendida conforme estratégia comercial</p>
+                                </div>
+                            </div>
+                            
+                            <div class="space-y-4">
+                                <div class="flex items-start">
+                                    <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center mr-4 mt-1">
+                                        <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                                        </svg>
+                                    </div>
+                                    <p class="text-gray-700">Modular, escalável e pronta para diferentes nichos</p>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center mr-4 mt-1">
+                                        <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                                        </svg>
+                                    </div>
+                                    <p class="text-gray-700">Preparada para novos recursos como lives, marketplace, campanhas pagas</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </section>
+
+    <!-- Cronograma Section -->
+    <section id="cronograma" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <!-- Conteúdo do Cronograma (copiado de cronograma.html) -->
+            <header class="gradient-bg text-white py-16">
+                <div class="container mx-auto px-6">
+                    <div class="text-center animate-fade-in">
+                        <div class="mb-6">
+                            <div class="inline-flex items-center justify-center w-20 h-20 bg-white/20 rounded-full mb-4">
+                                <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <h1 class="text-5xl font-bold mb-4">Cronograma de Desenvolvimento</h1>
+                        <h2 class="text-2xl font-light mb-6 opacity-90">Plataforma ArMatch - Foco em Funcionalidades</h2>
+                        <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6 max-w-2xl mx-auto">
+                            <div class="grid md:grid-cols-3 gap-4 text-center">
                                 <div>
-                                    <h4 class="text-xl font-bold">Total Investido no Projeto</h4>
-                                    <p class="text-sm opacity-90">Valor total para desenvolvimento completo</p>
+                                    <p class="text-sm opacity-75">Início do Projeto</p>
+                                    <p class="text-xl font-semibold">14/07/2025</p>
                                 </div>
-                                <div class="text-right">
-                                    <span class="text-4xl font-bold">R$ 27.000,00</span>
+                                <div>
+                                    <p class="text-sm opacity-75">Duração Total</p>
+                                    <p class="text-xl font-semibold">45 dias</p>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="mt-8 p-6 bg-yellow-50 border-l-4 border-yellow-400 rounded-r-lg">
-                        <div class="flex items-start">
-                            <div class="flex-shrink-0">
-                                <svg class="w-6 h-6 text-yellow-600" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
-                                </svg>
-                            </div>
-                            <div class="ml-3">
-                                <h4 class="text-lg font-semibold text-yellow-800">Manutenção Evolutiva</h4>
-                                <p class="text-yellow-700">Após a entrega, será aplicada uma taxa de <strong>1% sobre o TPV (Total Processado de Vendas)</strong> para manter a plataforma sempre atualizada e com suporte técnico evolutivo.</p>
+                                <div>
+                                    <p class="text-sm opacity-75">Entrega Prevista</p>
+                                    <p class="text-xl font-semibold">12/09/2025</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </header>
+        
+            <!-- Progress Overview -->
+            <section class="py-12 bg-white">
+                <div class="container mx-auto px-6">
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Visão Geral do Progresso</h3>
+                        <div class="w-full bg-gray-200 rounded-full h-4 max-w-2xl mx-auto">
+                            <div class="progress-bar h-4 rounded-full" style="width: 0%"></div>
+                        </div>
+                        <p class="text-gray-600 mt-2">0% Concluído - Aguardando início</p>
+                    </div>
+                </div>
+            </section>
+        
+            <!-- Timeline -->
+            <main class="container mx-auto px-6 py-12">
+                <div class="relative">
+                    <!-- Timeline Line -->
+                    <div class="absolute left-8 top-0 bottom-0 w-1 timeline-line hidden md:block"></div>
+                    
+                    <!-- Sprint 1: Planejamento e Estrutura Base -->
+                    <div class="relative mb-12 animate-slide-in">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 w-16 h-16 phase-icon rounded-full flex items-center justify-center text-white font-bold text-lg mr-8 relative z-10">
+                                1
+                            </div>
+                            <div class="flex-grow">
+                                <div class="bg-white rounded-xl shadow-lg p-8 phase-card border-l-4 border-primary">
+                                    <div class="flex justify-between items-start mb-4">
+                                        <div>
+                                            <h3 class="text-2xl font-bold text-gray-800 mb-2">Sprint 1: Planejamento e Estrutura Base</h3>
+                                            <div class="flex items-center text-gray-600 mb-2">
+                                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                                                </svg>
+                                                <span class="font-semibold">5 dias</span>
+                                            </div>
+                                            <div class="flex items-center text-gray-600">
+                                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                                                </svg>
+                                                <span>14/07/2025 - 18/07/2025</span>
+                                            </div>
+                                        </div>
+                                        <div class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">
+                                            Preparação
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="space-y-3">
+                                        <div class="flex items-center">
+                                            <div class="w-2 h-2 bg-primary rounded-full mr-3"></div>
+                                            <span class="text-gray-700">Documento de requisitos detalhado e validado</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <div class="w-2 h-2 bg-primary rounded-full mr-3"></div>
+                                            <span class="text-gray-700">Modelo de dados (arquitetura do banco de dados)</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <div class="w-2 h-2 bg-primary rounded-full mr-3"></div>
+                                            <span class="text-gray-700">Ambiente de desenvolvimento configurado</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <div class="w-2 h-2 bg-primary rounded-full mr-3"></div>
+                                            <span class="text-gray-700">Estrutura de projeto base inicializada</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Sprint 2: Módulo de Conteúdo - Base -->
+                    <div class="relative mb-12 animate-slide-in" style="animation-delay: 0.2s;">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 w-16 h-16 phase-icon rounded-full flex items-center justify-center text-white font-bold text-lg mr-8 relative z-10">
+                                2
+                            </div>
+                            <div class="flex-grow">
+                                <div class="bg-white rounded-xl shadow-lg p-8 phase-card border-l-4 border-success">
+                                    <div class="flex justify-between items-start mb-4">
+                                        <div>
+                                            <h3 class="text-2xl font-bold text-gray-800 mb-2">Sprint 2: Módulo de Conteúdo - Base</h3>
+                                            <div class="flex items-center text-gray-600 mb-2">
+                                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                                                </svg>
+                                                <span class="font-semibold">5 dias</span>
+                                            </div>
+                                            <div class="flex items-center text-gray-600">
+                                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                                                </svg>
+                                                <span>21/07/2025 - 25/07/2025</span>
+                                            </div>
+                                        </div>
+                                        <div class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold">
+                                            Desenvolvimento
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="space-y-3">
+                                        <div class="flex items-center">
+                                            <div class="w-2 h-2 bg-success rounded-full mr-3"></div>
+                                            <span class="text-gray-700">Gerenciamento de perfis de criadores (cadastro, edição)</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <div class="w-2 h-2 bg-success rounded-full mr-3"></div>
+                                            <span class="text-gray-700">Funcionalidade de upload de fotos e vídeos (sem monetização)</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <div class="w-2 h-2 bg-success rounded-full mr-3"></div>
+                                            <span class="text-gray-700">Estrutura para exibição de conteúdo público</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Sprint 3: Módulo de Conteúdo - Interatividade -->
+                    <div class="relative mb-12 animate-slide-in" style="animation-delay: 0.4s;">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 w-16 h-16 phase-icon rounded-full flex items-center justify-center text-white font-bold text-lg mr-8 relative z-10">
+                                3
+                            </div>
+                            <div class="flex-grow">
+                                <div class="bg-white rounded-xl shadow-lg p-8 phase-card border-l-4 border-accent">
+                                    <div class="flex justify-between items-start mb-4">
+                                        <div>
+                                            <h3 class="text-2xl font-bold text-gray-800 mb-2">Sprint 3: Módulo de Conteúdo - Interatividade</h3>
+                                            <div class="flex items-center text-gray-600 mb-2">
+                                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                                                </svg>
+                                                <span class="font-semibold">5 dias</span>
+                                            </div>
+                                            <div class="flex items-center text-gray-600">
+                                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                                                </svg>
+                                                <span>28/07/2025 - 01/08/2025</span>
+                                            </div>
+                                        </div>
+                                        <div class="bg-pink-100 text-pink-800 px-3 py-1 rounded-full text-sm font-semibold">
+                                            Interatividade
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="space-y-3">
+                                        <div class="flex items-center">
+                                            <div class="w-2 h-2 bg-accent rounded-full mr-3"></div>
+                                            <span class="text-gray-700">Funcionalidade de chat entre criadores e consumidores</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <div class="w-2 h-2 bg-accent rounded-full mr-3"></div>
+                                            <span class="text-gray-700">Mecanismo de busca e navegação por perfis</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <div class="w-2 h-2 bg-accent rounded-full mr-3"></div>
+                                            <span class="text-gray-700">Exibição de conteúdo para consumidores (sem acesso pago ainda)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Sprint 4: Módulo de Acompanhantes - Base -->
+                    <div class="relative mb-12 animate-slide-in" style="animation-delay: 0.6s;">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 w-16 h-16 phase-icon rounded-full flex items-center justify-center text-white font-bold text-lg mr-8 relative z-10">
+                                4
+                            </div>
+                            <div class="flex-grow">
+                                <div class="bg-white rounded-xl shadow-lg p-8 phase-card border-l-4 border-warning">
+                                    <div class="flex justify-between items-start mb-4">
+                                        <div>
+                                            <h3 class="text-2xl font-bold text-gray-800 mb-2">Sprint 4: Módulo de Acompanhantes - Base</h3>
+                                            <div class="flex items-center text-gray-600 mb-2">
+                                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                                                </svg>
+                                                <span class="font-semibold">5 dias</span>
+                                            </div>
+                                            <div class="flex items-center text-gray-600">
+                                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                                                </svg>
+                                                <span>04/08/2025 - 08/08/2025</span>
+                                            </div>
+                                        </div>
+                                        <div class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-semibold">
+                                            Desenvolvimento
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="space-y-3">
+                                        <div class="flex items-center">
+                                            <div class="w-2 h-2 bg-warning rounded-full mr-3"></div>
+                                            <span class="text-gray-700">Gerenciamento de perfis de acompanhantes (cadastro, edição)</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <div class="w-2 h-2 bg-warning rounded-full mr-3"></div>
+                                            <span class="text-gray-700">Upload e moderação de fotos de verificação</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <div class="w-2 h-2 bg-warning rounded-full mr-3"></div>
+                                            <span class="text-gray-700">Página pública de acompanhantes com galeria e descrição</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Sprint 5: Módulo de Acompanhantes - Interatividade -->
+                    <div class="relative mb-12 animate-slide-in" style="animation-delay: 0.8s;">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 w-16 h-16 phase-icon rounded-full flex items-center justify-center text-white font-bold text-lg mr-8 relative z-10">
+                                5
+                            </div>
+                            <div class="flex-grow">
+                                <div class="bg-white rounded-xl shadow-lg p-8 phase-card border-l-4 border-secondary">
+                                    <div class="flex justify-between items-start mb-4">
+                                        <div>
+                                            <h3 class="text-2xl font-bold text-gray-800 mb-2">Sprint 5: Módulo de Acompanhantes - Interatividade</h3>
+                                            <div class="flex items-center text-gray-600 mb-2">
+                                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                                                </svg>
+                                                <span class="font-semibold">5 dias</span>
+                                            </div>
+                                            <div class="flex items-center text-gray-600">
+                                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                                                </svg>
+                                                <span>11/08/2025 - 15/08/2025</span>
+                                            </div>
+                                        </div>
+                                        <div class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-semibold">
+                                            Interatividade
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="space-y-3">
+                                        <div class="flex items-center">
+                                            <div class="w-2 h-2 bg-secondary rounded-full mr-3"></div>
+                                            <span class="text-gray-700">Funcionalidade de depoimentos de visitantes</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <div class="w-2 h-2 bg-secondary rounded-full mr-3"></div>
+                                            <span class="text-gray-700">Filtros de busca por localização e gênero</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <div class="w-2 h-2 bg-secondary rounded-full mr-3"></div>
+                                            <span class="text-gray-700">Integração com WhatsApp para contato direto</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Sprint 6: Painel Administrativo - Gestão -->
+                    <div class="relative mb-12 animate-slide-in" style="animation-delay: 1.0s;">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 w-16 h-16 phase-icon rounded-full flex items-center justify-center text-white font-bold text-lg mr-8 relative z-10">
+                                6
+                            </div>
+                            <div class="flex-grow">
+                                <div class="bg-white rounded-xl shadow-lg p-8 phase-card border-l-4 border-primary">
+                                    <div class="flex justify-between items-start mb-4">
+                                        <div>
+                                            <h3 class="text-2xl font-bold text-gray-800 mb-2">Sprint 6: Painel Administrativo - Gestão</h3>
+                                            <div class="flex items-center text-gray-600 mb-2">
+                                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                                                </svg>
+                                                <span class="font-semibold">5 dias</span>
+                                            </div>
+                                            <div class="flex items-center text-gray-600">
+                                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                                                </svg>
+                                                <span>18/08/2025 - 22/08/2025</span>
+                                            </div>
+                                        </div>
+                                        <div class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">
+                                            Gestão
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="space-y-3">
+                                        <div class="flex items-center">
+                                            <div class="w-2 h-2 bg-primary rounded-full mr-3"></div>
+                                            <span class="text-gray-700">Gestão de usuários (criadores, consumidores, acompanhantes)</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <div class="w-2 h-2 bg-primary rounded-full mr-3"></div>
+                                            <span class="text-gray-700">Moderação de conteúdo (fotos, vídeos, depoimentos)</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <div class="w-2 h-2 bg-primary rounded-full mr-3"></div>
+                                            <span class="text-gray-700">Sistema de denúncias</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Sprint 7: Painel Administrativo - Financeiro e Monetização -->
+                    <div class="relative mb-12 animate-slide-in" style="animation-delay: 1.2s;">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 w-16 h-16 phase-icon rounded-full flex items-center justify-center text-white font-bold text-lg mr-8 relative z-10">
+                                7
+                            </div>
+                            <div class="flex-grow">
+                                <div class="bg-white rounded-xl shadow-lg p-8 phase-card border-l-4 border-success">
+                                    <div class="flex justify-between items-start mb-4">
+                                        <div>
+                                            <h3 class="text-2xl font-bold text-gray-800 mb-2">Sprint 7: Painel Administrativo - Financeiro e Monetização</h3>
+                                            <div class="flex items-center text-gray-600 mb-2">
+                                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                                                </svg>
+                                                <span class="font-semibold">5 dias</span>
+                                            </div>
+                                            <div class="flex items-center text-gray-600">
+                                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                                                </svg>
+                                                <span>25/08/2025 - 29/08/2025</span>
+                                            </div>
+                                        </div>
+                                        <div class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold">
+                                            Monetização
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="space-y-3">
+                                        <div class="flex items-center">
+                                            <div class="w-2 h-2 bg-success rounded-full mr-3"></div>
+                                            <span class="text-gray-700">Sistema de assinaturas para criadores de conteúdo</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <div class="w-2 h-2 bg-success rounded-full mr-3"></div>
+                                            <span class="text-gray-700">Venda avulsa de conteúdos</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <div class="w-2 h-2 bg-success rounded-full mr-3"></div>
+                                            <span class="text-gray-700">Relatórios de receita e TPV (Total Processado de Vendas)</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <div class="w-2 h-2 bg-success rounded-full mr-3"></div>
+                                            <span class="text-gray-700">Acompanhamento de repasses</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <div class="w-2 h-2 bg-success rounded-full mr-3"></div>
+                                            <span class="text-gray-700">Exportação de relatórios financeiros</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Sprint 8: Integrações de Pagamento e Testes -->
+                    <div class="relative mb-12 animate-slide-in" style="animation-delay: 1.4s;">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 w-16 h-16 phase-icon rounded-full flex items-center justify-center text-white font-bold text-lg mr-8 relative z-10">
+                                8
+                            </div>
+                            <div class="flex-grow">
+                                <div class="bg-white rounded-xl shadow-lg p-8 phase-card border-l-4 border-accent">
+                                    <div class="flex justify-between items-start mb-4">
+                                        <div>
+                                            <h3 class="text-2xl font-bold text-gray-800 mb-2">Sprint 8: Integrações de Pagamento e Testes</h3>
+                                            <div class="flex items-center text-gray-600 mb-2">
+                                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                                                </svg>
+                                                <span class="font-semibold">5 dias</span>
+                                            </div>
+                                            <div class="flex items-center text-gray-600">
+                                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                                                </svg>
+                                                <span>01/09/2025 - 05/09/2025</span>
+                                            </div>
+                                        </div>
+                                        <div class="bg-pink-100 text-pink-800 px-3 py-1 rounded-full text-sm font-semibold">
+                                            Pagamento & Testes
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="space-y-3">
+                                        <div class="flex items-center">
+                                            <div class="w-2 h-2 bg-accent rounded-full mr-3"></div>
+                                            <span class="text-gray-700">Integração com API de Pix</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <div class="w-2 h-2 bg-accent rounded-full mr-3"></div>
+                                            <span class="text-gray-700">Integração com gateway de Cartão de Crédito (Stripe, Iugu, Mercado Pago)</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <div class="w-2 h-2 bg-accent rounded-full mr-3"></div>
+                                            <span class="text-gray-700">Testes unitários e de integração completos</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <div class="w-2 h-2 bg-accent rounded-full mr-3"></div>
+                                            <span class="text-gray-700">Testes de aceitação e validação de funcionalidades</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Sprint 9: Refinamento e Deploy -->
+                    <div class="relative mb-12 animate-slide-in" style="animation-delay: 1.6s;">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 w-16 h-16 phase-icon rounded-full flex items-center justify-center text-white font-bold text-lg mr-8 relative z-10">
+                                9
+                            </div>
+                            <div class="flex-grow">
+                                <div class="bg-white rounded-xl shadow-lg p-8 phase-card border-l-4 border-warning">
+                                    <div class="flex justify-between items-start mb-4">
+                                        <div>
+                                            <h3 class="text-2xl font-bold text-gray-800 mb-2">Sprint 9: Refinamento e Deploy</h3>
+                                            <div class="flex items-center text-gray-600 mb-2">
+                                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                                                </svg>
+                                                <span class="font-semibold">5 dias</span>
+                                            </div>
+                                            <div class="flex items-center text-gray-600">
+                                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                                                </svg>
+                                                <span>08/09/2025 - 12/09/2025</span>
+                                            </div>
+                                        </div>
+                                        <div class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-semibold">
+                                            Finalização
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="space-y-3">
+                                        <div class="flex items-center">
+                                            <div class="w-2 h-2 bg-warning rounded-full mr-3"></div>
+                                            <span class="text-gray-700">Correção de bugs e ajustes finos</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <div class="w-2 h-2 bg-warning rounded-full mr-3"></div>
+                                            <span class="text-gray-700">Otimização de performance e segurança</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <div class="w-2 h-2 bg-warning rounded-full mr-3"></div>
+                                            <span class="text-gray-700">Revisão final de código</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <div class="w-2 h-2 bg-warning rounded-full mr-3"></div>
+                                            <span class="text-gray-700">Configuração do ambiente de produção e deploy da aplicação</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <div class="w-2 h-2 bg-warning rounded-full mr-3"></div>
+                                            <span class="text-gray-700">Testes pós-deploy e validação final</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Summary -->
+                <section class="mt-16 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl text-white p-8">
+                    <div class="text-center">
+                        <h3 class="text-3xl font-bold mb-6">Resumo do Cronograma</h3>
+                        <div class="grid md:grid-cols-4 gap-6">
+                            <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                                <div class="text-3xl font-bold mb-2">9</div>
+                                <div class="text-sm opacity-90">Sprints</div>
+                            </div>
+                            <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                                <div class="text-3xl font-bold mb-2">45</div>
+                                <div class="text-sm opacity-90">Dias Totais</div>
+                            </div>
+                            <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                                <div class="text-3xl font-bold mb-2">Foco em</div>
+                                <div class="text-sm opacity-90">Funcionalidades</div>
+                            </div>
+                            <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                                <div class="text-3xl font-bold mb-2">Entregas</div>
+                                <div class="text-sm opacity-90">Contínuas</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </section>
 
-        <!-- Considerações Finais -->
-        <section class="mb-16">
-            <div class="bg-white rounded-xl shadow-lg p-8">
-                <div class="text-center mb-8">
-                    <h3 class="text-3xl font-bold text-gray-800 mb-4">📌 Considerações Finais</h3>
-                    <div class="section-divider h-px w-24 mx-auto"></div>
-                </div>
-                
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div class="space-y-4">
-                        <div class="flex items-start">
-                            <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center mr-4 mt-1">
-                                <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+    <!-- Kanban Section -->
+    <section id="kanban" class="py-16">
+        <div class="container mx-auto px-6">
+            <!-- Conteúdo do Kanban (copiado de kanban.html) -->
+            <header class="gradient-bg text-white py-8">
+                <div class="container mx-auto px-6">
+                    <div class="text-center animate-fade-in">
+                        <div class="mb-4">
+                            <div class="inline-flex items-center justify-center w-16 h-16 bg-white/20 rounded-full mb-4">
+                                <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
                                 </svg>
                             </div>
-                            <p class="text-gray-700">A plataforma é 100% de propriedade da ArMatch (white label)</p>
                         </div>
-                        
-                        <div class="flex items-start">
-                            <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center mr-4 mt-1">
-                                <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                                </svg>
+                        <h1 class="text-4xl font-bold mb-2">Kanban - ArMatch Development</h1>
+                        <p class="text-xl font-light opacity-90">Gestão de Tarefas para 2 Desenvolvedores Full-Stack</p>
+                        <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4 max-w-lg mx-auto mt-6">
+                            <div class="grid grid-cols-2 gap-4 text-center">
+                                <div>
+                                    <p class="text-sm opacity-75">Período</p>
+                                    <p class="text-lg font-semibold">45 dias</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm opacity-75">Sprints</p>
+                                    <p class="text-lg font-semibold">9 sprints</p>
+                                </div>
                             </div>
-                            <p class="text-gray-700">Pode ser adaptada, licenciada ou revendida conforme estratégia comercial</p>
-                        </div>
-                    </div>
-                    
-                    <div class="space-y-4">
-                        <div class="flex items-start">
-                            <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center mr-4 mt-1">
-                                <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                                </svg>
-                            </div>
-                            <p class="text-gray-700">Modular, escalável e pronta para diferentes nichos</p>
-                        </div>
-                        
-                        <div class="flex items-start">
-                            <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center mr-4 mt-1">
-                                <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                                </svg>
-                            </div>
-                            <p class="text-gray-700">Preparada para novos recursos como lives, marketplace, campanhas pagas</p>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-    </main>
+            </header>
+        
+            <!-- Developer Legend -->
+            <section class="py-6 bg-white border-b">
+                <div class="container mx-auto px-6">
+                    <div class="flex justify-center items-center space-x-8">
+                        <div class="flex items-center">
+                            <div class="w-4 h-4 bg-blue-500 rounded-full mr-2"></div>
+                            <span class="text-gray-700 font-medium">Dev 1</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-4 h-4 bg-green-500 rounded-full mr-2"></div>
+                            <span class="text-gray-700 font-medium">Dev 2</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        
+            <!-- Kanban Board -->
+            <main class="container mx-auto px-6 py-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- A Fazer Column -->
+                    <div class="bg-white rounded-xl shadow-lg p-6 kanban-column">
+                        <div class="flex items-center justify-between mb-6">
+                            <h2 class="text-xl font-bold text-gray-800">A Fazer</h2>
+                            <div class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-sm font-semibold" id="todo-count">
+                                0 tarefas
+                            </div>
+                        </div>
+                        <div class="space-y-4 scrollbar-hide overflow-y-auto max-h-96" id="todo-column">
+                            <!-- Tasks will be loaded here -->
+                        </div>
+                    </div>
+        
+                    <!-- Em Andamento Column -->
+                    <div class="bg-white rounded-xl shadow-lg p-6 kanban-column">
+                        <div class="flex items-center justify-between mb-6">
+                            <h2 class="text-xl font-bold text-gray-800">Em Andamento</h2>
+                            <div class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm font-semibold" id="progress-count">
+                                0 tarefas
+                            </div>
+                        </div>
+                        <div class="space-y-4 scrollbar-hide overflow-y-auto max-h-96" id="progress-column">
+                            <!-- Tasks will be loaded here -->
+                        </div>
+                    </div>
+        
+                    <!-- Concluído Column -->
+                    <div class="bg-white rounded-xl shadow-lg p-6 kanban-column">
+                        <div class="flex items-center justify-between mb-6">
+                            <h2 class="text-xl font-bold text-gray-800">Concluído</h2>
+                            <div class="bg-green-100 text-green-600 px-3 py-1 rounded-full text-sm font-semibold" id="done-count">
+                                0 tarefas
+                            </div>
+                        </div>
+                        <div class="space-y-4 scrollbar-hide overflow-y-auto max-h-96" id="done-column">
+                            <!-- Tasks will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Statistics -->
+                <section class="mt-12 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl text-white p-8">
+                    <div class="text-center">
+                        <h3 class="text-3xl font-bold mb-6">Estatísticas do Projeto</h3>
+                        <div class="grid md:grid-cols-4 gap-6">
+                            <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                                <div class="text-3xl font-bold mb-2" id="total-tasks">0</div>
+                                <div class="text-sm opacity-90">Total de Tarefas</div>
+                            </div>
+                            <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                                <div class="text-3xl font-bold mb-2" id="dev1-tasks">0</div>
+                                <div class="text-sm opacity-90">Tarefas Dev 1</div>
+                            </div>
+                            <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                                <div class="text-3xl font-bold mb-2" id="dev2-tasks">0</div>
+                                <div class="text-sm opacity-90">Tarefas Dev 2</div>
+                            </div>
+                            <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                                <div class="text-3xl font-bold mb-2" id="completion-rate">0%</div>
+                                <div class="text-sm opacity-90">Taxa de Conclusão</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="bg-dark text-white py-12">
@@ -414,22 +1129,320 @@
             });
         });
 
-        // Add animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+        // Kanban data will be loaded from JSON
+        const kanbanData = {
+            "A Fazer": [
+                {
+                    "task": "Planejamento e Estrutura Base - Documento de requisitos detalhado e validado.",
+                    "assigned_to": "Dev 1",
+                    "status": "A Fazer"
+                },
+                {
+                    "task": "Planejamento e Estrutura Base - Modelo de dados (arquitetura do banco de dados).",
+                    "assigned_to": "Dev 2",
+                    "status": "A Fazer"
+                },
+                {
+                    "task": "Planejamento e Estrutura Base - Ambiente de desenvolvimento configurado.",
+                    "assigned_to": "Dev 1",
+                    "status": "A Fazer"
+                },
+                {
+                    "task": "Planejamento e Estrutura Base - Estrutura de projeto base inicializada.",
+                    "assigned_to": "Dev 2",
+                    "status": "A Fazer"
+                },
+                {
+                    "task": "Módulo de Conteúdo - Base - Gerenciamento de perfis de criadores (cadastro, edição).",
+                    "assigned_to": "Dev 1",
+                    "status": "A Fazer"
+                },
+                {
+                    "task": "Módulo de Conteúdo - Base - Funcionalidade de upload de fotos e vídeos (sem monetização).",
+                    "assigned_to": "Dev 2",
+                    "status": "A Fazer"
+                },
+                {
+                    "task": "Módulo de Conteúdo - Base - Estrutura para exibição de conteúdo público.",
+                    "assigned_to": "Dev 1",
+                    "status": "A Fazer"
+                },
+                {
+                    "task": "Módulo de Conteúdo - Interatividade - Funcionalidade de chat entre criadores e consumidores.",
+                    "assigned_to": "Dev 2",
+                    "status": "A Fazer"
+                },
+                {
+                    "task": "Módulo de Conteúdo - Interatividade - Mecanismo de busca e navegação por perfis.",
+                    "assigned_to": "Dev 1",
+                    "status": "A Fazer"
+                },
+                {
+                    "task": "Módulo de Conteúdo - Interatividade - Exibição de conteúdo para consumidores (sem acesso pago ainda).",
+                    "assigned_to": "Dev 2",
+                    "status": "A Fazer"
+                },
+                {
+                    "task": "Módulo de Acompanhantes - Base - Gerenciamento de perfis de acompanhantes (cadastro, edição).",
+                    "assigned_to": "Dev 1",
+                    "status": "A Fazer"
+                },
+                {
+                    "task": "Módulo de Acompanhantes - Base - Upload e moderação de fotos de verificação.",
+                    "assigned_to": "Dev 2",
+                    "status": "A Fazer"
+                },
+                {
+                    "task": "Módulo de Acompanhantes - Base - Página pública de acompanhantes com galeria e descrição.",
+                    "assigned_to": "Dev 1",
+                    "status": "A Fazer"
+                },
+                {
+                    "task": "Módulo de Acompanhantes - Interatividade - Funcionalidade de depoimentos de visitantes.",
+                    "assigned_to": "Dev 2",
+                    "status": "A Fazer"
+                },
+                {
+                    "task": "Módulo de Acompanhantes - Interatividade - Filtros de busca por localização e gênero.",
+                    "assigned_to": "Dev 1",
+                    "status": "A Fazer"
+                },
+                {
+                    "task": "Módulo de Acompanhantes - Interatividade - Integração com WhatsApp para contato direto.",
+                    "assigned_to": "Dev 2",
+                    "status": "A Fazer"
+                },
+                {
+                    "task": "Painel Administrativo - Gestão - Gestão de usuários (criadores, consumidores, acompanhantes).",
+                    "assigned_to": "Dev 1",
+                    "status": "A Fazer"
+                },
+                {
+                    "task": "Painel Administrativo - Gestão - Moderação de conteúdo (fotos, vídeos, depoimentos).",
+                    "assigned_to": "Dev 2",
+                    "status": "A Fazer"
+                },
+                {
+                    "task": "Painel Administrativo - Gestão - Sistema de denúncias.",
+                    "assigned_to": "Dev 1",
+                    "status": "A Fazer"
+                },
+                {
+                    "task": "Painel Administrativo - Financeiro e Monetização - Sistema de assinaturas para criadores de conteúdo.",
+                    "assigned_to": "Dev 2",
+                    "status": "A Fazer"
+                },
+                {
+                    "task": "Painel Administrativo - Financeiro e Monetização - Venda avulsa de conteúdos.",
+                    "assigned_to": "Dev 1",
+                    "status": "A Fazer"
+                },
+                {
+                    "task": "Painel Administrativo - Financeiro e Monetização - Relatórios de receita e TPV (Total Processado de Vendas).",
+                    "assigned_to": "Dev 2",
+                    "status": "A Fazer"
+                },
+                {
+                    "task": "Painel Administrativo - Financeiro e Monetização - Acompanhamento de repasses.",
+                    "assigned_to": "Dev 1",
+                    "status": "A Fazer"
+                },
+                {
+                    "task": "Painel Administrativo - Financeiro e Monetização - Exportação de relatórios financeiros.",
+                    "assigned_to": "Dev 2",
+                    "status": "A Fazer"
+                },
+                {
+                    "task": "Integrações de Pagamento e Testes - Integração com API de Pix.",
+                    "assigned_to": "Dev 1",
+                    "status": "A Fazer"
+                },
+                {
+                    "task": "Integrações de Pagamento e Testes - Integração com gateway de Cartão de Crédito (Stripe, Iugu, Mercado Pago).",
+                    "assigned_to": "Dev 2",
+                    "status": "A Fazer"
+                },
+                {
+                    "task": "Integrações de Pagamento e Testes - Testes unitários e de integração completos.",
+                    "assigned_to": "Dev 1",
+                    "status": "A Fazer"
+                },
+                {
+                    "task": "Integrações de Pagamento e Testes - Testes de aceitação e validação de funcionalidades.",
+                    "assigned_to": "Dev 2",
+                    "status": "A Fazer"
+                },
+                {
+                    "task": "Refinamento e Deploy - Correção de bugs e ajustes finos.",
+                    "assigned_to": "Dev 1",
+                    "status": "A Fazer"
+                },
+                {
+                    "task": "Refinamento e Deploy - Otimização de performance e segurança.",
+                    "assigned_to": "Dev 2",
+                    "status": "A Fazer"
+                },
+                {
+                    "task": "Refinamento e Deploy - Revisão final de código.",
+                    "assigned_to": "Dev 1",
+                    "status": "A Fazer"
+                },
+                {
+                    "task": "Refinamento e Deploy - Configuração do ambiente de produção e deploy da aplicação.",
+                    "assigned_to": "Dev 2",
+                    "status": "A Fazer"
+                },
+                {
+                    "task": "Refinamento e Deploy - Testes pós-deploy e validação final.",
+                    "assigned_to": "Dev 1",
+                    "status": "A Fazer"
+                }
+            ],
+            "Em Andamento": [],
+            "Concluído": []
         };
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-fade-in');
-                }
-            });
-        }, observerOptions);
+        function createTaskCard(task) {
+            const devColor = task.assigned_to === 'Dev 1' ? 'bg-blue-500' : 'bg-green-500';
+            const devColorLight = task.assigned_to === 'Dev 1' ? 'bg-blue-50 border-blue-200' : 'bg-green-50 border-green-200';
+            
+            return `
+                <div class="kanban-card bg-white border-2 ${devColorLight} rounded-lg p-4 shadow-sm" draggable="true" data-task-id="${task.task}">
+                    <div class="flex items-start justify-between mb-3">
+                        <div class="flex items-center">
+                            <div class="w-3 h-3 ${devColor} rounded-full mr-2"></div>
+                            <span class="text-xs font-semibold text-gray-600">${task.assigned_to}</span>
+                        </div>
+                        <div class="text-xs text-gray-400">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <h4 class="text-sm font-medium text-gray-800 leading-tight mb-2">${task.task}</h4>
+                    <div class="flex items-center justify-between text-xs text-gray-500">
+                        <span class="px-2 py-1 bg-gray-100 rounded-full">${task.status}</span>
+                    </div>
+                </div>
+            `;
+        }
 
-        document.querySelectorAll('section').forEach(section => {
-            observer.observe(section);
+        function loadKanbanBoard() {
+            const todoColumn = document.getElementById('todo-column');
+            const progressColumn = document.getElementById('progress-column');
+            const doneColumn = document.getElementById('done-column');
+
+            // Clear columns
+            todoColumn.innerHTML = '';
+            progressColumn.innerHTML = '';
+            doneColumn.innerHTML = '';
+
+            // Load tasks
+            kanbanData["A Fazer"].forEach(task => {
+                todoColumn.innerHTML += createTaskCard(task);
+            });
+
+            kanbanData["Em Andamento"].forEach(task => {
+                progressColumn.innerHTML += createTaskCard(task);
+            });
+
+            kanbanData["Concluído"].forEach(task => {
+                doneColumn.innerHTML += createTaskCard(task);
+            });
+
+            updateCounters();
+            updateStatistics();
+        }
+
+        function updateCounters() {
+            document.getElementById('todo-count').textContent = `${kanbanData["A Fazer"].length} tarefas`;
+            document.getElementById('progress-count').textContent = `${kanbanData["Em Andamento"].length} tarefas`;
+            document.getElementById('done-count').textContent = `${kanbanData["Concluído"].length} tarefas`;
+        }
+
+        function updateStatistics() {
+            const totalTasks = kanbanData["A Fazer"].length + kanbanData["Em Andamento"].length + kanbanData["Concluído"].length;
+            const dev1Tasks = Object.values(kanbanData).flat().filter(task => task.assigned_to === 'Dev 1').length;
+            const dev2Tasks = Object.values(kanbanData).flat().filter(task => task.assigned_to === 'Dev 2').length;
+            const completionRate = totalTasks > 0 ? Math.round((kanbanData["Concluído"].length / totalTasks) * 100) : 0;
+
+            document.getElementById('total-tasks').textContent = totalTasks;
+            document.getElementById('dev1-tasks').textContent = dev1Tasks;
+            document.getElementById('dev2-tasks').textContent = dev2Tasks;
+            document.getElementById('completion-rate').textContent = `${completionRate}%`;
+        }
+
+        // Initialize the board
+        document.addEventListener('DOMContentLoaded', function() {
+            loadKanbanBoard();
+            // Progress bar animation (simulated) for cronograma section
+            function updateProgress() {
+                const progressBar = document.querySelector('#cronograma .progress-bar');
+                const today = new Date();
+                const startDate = new Date('2025-07-14');
+                const endDate = new Date('2025-09-12');
+                
+                if (today >= startDate && today <= endDate) {
+                    const totalDays = (endDate - startDate) / (1000 * 60 * 60 * 24);
+                    const daysPassed = (today - startDate) / (1000 * 60 * 60 * 24);
+                    const progress = Math.min((daysPassed / totalDays) * 100, 100);
+                    
+                    progressBar.style.width = progress + '%';
+                    document.querySelector('#cronograma .progress-bar').nextElementSibling.textContent = 
+                        `${Math.round(progress)}% Concluído - ${Math.round(daysPassed)} de ${Math.round(totalDays)} dias`;
+                }
+            }
+            updateProgress();
+        });
+
+        // Add drag and drop functionality
+        let draggedElement = null;
+
+        document.addEventListener('dragstart', function(e) {
+            if (e.target.classList.contains('kanban-card')) {
+                draggedElement = e.target;
+                e.target.style.opacity = '0.5';
+            }
+        });
+
+        document.addEventListener('dragend', function(e) {
+            if (e.target.classList.contains('kanban-card')) {
+                e.target.style.opacity = '1';
+                draggedElement = null;
+            }
+        });
+
+        document.addEventListener('dragover', function(e) {
+            e.preventDefault();
+        });
+
+        document.addEventListener('drop', function(e) {
+            e.preventDefault();
+            if (draggedElement && (e.target.id === 'todo-column' || e.target.id === 'progress-column' || e.target.id === 'done-column')) {
+                e.target.appendChild(draggedElement);
+                
+                // Update task status in data
+                const taskId = draggedElement.getAttribute('data-task-id');
+                let newStatus = '';
+                
+                if (e.target.id === 'todo-column') newStatus = 'A Fazer';
+                else if (e.target.id === 'progress-column') newStatus = 'Em Andamento';
+                else if (e.target.id === 'done-column') newStatus = 'Concluído';
+                
+                // Move task in data structure
+                for (let status in kanbanData) {
+                    const taskIndex = kanbanData[status].findIndex(task => task.task === taskId);
+                    if (taskIndex !== -1) {
+                        const task = kanbanData[status].splice(taskIndex, 1)[0];
+                        task.status = newStatus;
+                        kanbanData[newStatus].push(task);
+                        break;
+                    }
+                }
+                
+                updateCounters();
+                updateStatistics();
+            }
         });
     </script>
 </body>
